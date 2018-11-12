@@ -1,0 +1,19 @@
+<div class="product-view">
+
+  <div class="image-part">
+    <img [src]="product.thumbnailUrl | imagePipe" alt="product image" class="image" (click)="productClicked()">
+  </div>
+
+  <div class="description" (click)="productClicked()">
+    <span class="title">
+      {{product.name | titlecase}}
+    </span>
+    <span>
+      {{product.description}}
+    </span>
+  </div>
+
+  <div class="button-delete">
+    <button type="button" class="delete" (click)="delete()">Delete</button>
+  </div>
+</div>

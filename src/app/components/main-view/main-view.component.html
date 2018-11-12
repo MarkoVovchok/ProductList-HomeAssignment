@@ -1,0 +1,27 @@
+<div class="main-container">
+  <div class="all-list">
+    <div class="filter-bars">
+      <div class="filter">
+        <label for="filter-box">Search products:</label>
+        <input type="search" id="filter-box" [(ngModel)]="filteredText" (ngModelChange)="startFiltering()">
+        <label for="sort-box">Sort by:</label>
+        <select id="sort-box" (change)="changeSorting($event.target.value)">
+          <option *ngFor=" let option of sorting">{{option}}</option>
+        </select>
+      </div>
+    </div>
+
+    <product-view *ngFor="let product of productsToShow | async | paginate: { itemsPerPage: 5, currentPage: currentPage }"
+      [product]="product"></product-view>
+
+      <div class="pagination">
+        <pagination-controls (pageChange)="currentPage = $event" autoHide="true" directionLinks="true" responsive="true">
+
+        </pagination-controls>
+      </div>
+  </div>
+
+  <div class="details">
+    <product-details></product-details>
+  </div>
+</div>

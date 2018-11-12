@@ -1,0 +1,43 @@
+.product-view {
+  display: flex;
+  border: 2px;
+  border-style: groove;
+  border-color: threedface;
+  margin-bottom: 15px;
+  align-items: center;
+
+  &:hover{
+    background-color: #9DC6C0
+  }
+
+  .image-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .image {
+      height: 40px;
+      width: 50px;
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    flex-grow: 2;
+
+    .title{
+      font-weight: bold;
+    }
+  }
+
+  .button-delete {
+    justify-content: flex-end;
+    align-self: flex-end;
+    .delete {
+      margin-bottom: 5px;
+      margin-right: 5px;
+      background-color: orange;
+      box-shadow: 2px 2px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.details-form {
+  .width-controlled {
+    width: 500px;
+  }
+
+  .form-inputs {
+    display: flex;
+    flex-direction: column;
+
+    .details-pic {
+      margin-bottom: 10px;
+      width: 150px;
+      height: 150px;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 10px;
+      border: 2px;
+      border-style: groove;
+      border-color: threedface;
+      &.price {
+        width: 20%;
+      }
+    }
+    .save-button {
+      align-self: flex-end;
+      width: 20%;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      background-color: lightgreen;
+      box-shadow: 2px 2px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .width-controlled {
+      width: 250px;
+    }
+    .form-inputs {
+      .details-pic {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}

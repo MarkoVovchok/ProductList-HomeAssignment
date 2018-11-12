@@ -1,0 +1,26 @@
+<div class="details-form">
+  <form *ngIf="selectedProduct.id" #productForm="ngForm">
+    <fieldset class="width-controlled">
+      <legend>{{selectedProduct.name | titlecase}} Details:</legend>
+      <div class="form-inputs">
+        <img [src]="selectedProduct.url | imagePipe" class="details-pic" alt="product big picture">
+        
+        <label for="pname">Product name:</label>
+        <input type="text" id="pname" name="pname" #pname="ngModel" [(ngModel)]="selectedProduct.name" [ngModelOptions]="{updateOn: 'blur'}"
+        required>
+        
+        <label for="pdescription">Description:</label>
+        <textarea id="pdescription" name="pdescription" [(ngModel)]="selectedProduct.description" rows="4"></textarea>
+        
+        <label for="price">Price:</label>
+        <div>
+          <input type="number" id="price" name="price" class="price"
+          [(ngModel)]="selectedProduct.price" [ngModelOptions]="{updateOn: 'blur'}"
+          #price="ngModel" (ngModelChange)="checkPriceValid()" min=0 required>$
+        </div>
+          
+        <button type="button" class="save-button" (click)="saveProduct()" [disabled]="pname.invalid || !formIsValid">Save</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
